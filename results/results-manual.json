@@ -1,0 +1,47 @@
+{
+  "note": "Output of `python grade_counts.py results/manual-counts-2026-11-25.json`, written by hand on 2026-11-25 and rounded to 4 decimals. Re-running the script reproduces it; test_grade_counts.py pins every verdict.",
+  "route": "whole-period search counts (ADDENDUM-2026-11-25.md)",
+  "periods": {"P0": "2023-01-01..2024-12-31", "P1": "2025-07-01..2026-08-31"},
+  "hypotheses": {
+    "H1_attempt_flood": {
+      "n_P0": 2512, "n_P1": 801,
+      "median_P0": 8.0, "median_P1": 8,
+      "median_ci95_P0": [8, 8], "median_ci95_P1": [7, 8],
+      "share_le8_P0": 0.5474, "share_le8_P1": 0.5568,
+      "threshold_ratio": 2.0,
+      "ratio": 1.0,
+      "ratio_interval_conservative": [0.875, 1.0],
+      "verdict": "FAIL"
+    },
+    "H2_claim_acceptance_drop": {
+      "prs_P0": 780, "merged_P0": 503, "prs_P1": 243, "merged_P1": 230,
+      "threshold_pp": 15.0,
+      "share_P0": 0.6449, "share_P1": 0.9465,
+      "drop_pp": -30.1630,
+      "verdict": "FAIL"
+    },
+    "H3_completion_drop": {
+      "n_P0": 2512, "completed_P0": 2297, "n_P1": 801, "completed_P1": 718,
+      "threshold_pp": 10.0,
+      "share_P0": 0.9144, "share_P1": 0.8964,
+      "drop_pp": 1.8031,
+      "verdict": "FAIL",
+      "sensitivity_with_farms": {
+        "share_P0": 0.9116, "share_P1": 0.7197, "drop_pp": 19.1917,
+        "farm_issues_P1": 198, "farm_completed_P1": 1
+      }
+    },
+    "H4_board_collapse": {
+      "mean_2024": 136.8333, "mean_2026_07_10": 0.0, "threshold_share": 0.25,
+      "share": 0.0,
+      "verdict": "PASS"
+    }
+  },
+  "issues_per_month": {
+    "2022H1": 8.2, "2022H2": 8.2, "2023H1": 53.7, "2023H2": 95.2, "2024H1": 102.3,
+    "2024H2": 171.3, "2025H1": 156.3, "2025H2": 117.3, "2026H1": 49.2, "2026-07..10": 0.0
+  },
+  "claim_pr_merged_share": {
+    "2023": 0.733, "2024": 0.619, "2025H1": 0.731, "2025H2": 0.939, "2026-01..08": 0.979
+  }
+}

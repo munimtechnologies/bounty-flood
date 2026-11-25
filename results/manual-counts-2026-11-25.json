@@ -1,0 +1,58 @@
+{
+  "collected_utc": "2026-11-25",
+  "source": "GitHub search API, https://api.github.com/search/issues, unauthenticated, per_page=1; the value kept is total_count. incomplete_results was false for every query.",
+  "base": "commenter:app/algora-pbc (issues and PRs where Algora's own GitHub App commented)",
+  "farm_filter": "-user:<owner> for each of the 36 owners in analyze.py FARM_OWNERS, appended to the query",
+  "periods": {"P0": "2023-01-01..2024-12-31", "P1": "2025-07-01..2026-08-31"},
+  "counts": {
+    "prs_P0":               {"n": 780,  "q": "is:pr commenter:app/algora-pbc created:2023-01-01..2024-12-31"},
+    "merged_P0":            {"n": 503,  "q": "is:pr is:merged commenter:app/algora-pbc created:2023-01-01..2024-12-31"},
+    "prs_P1":               {"n": 243,  "q": "is:pr commenter:app/algora-pbc created:2025-07-01..2026-08-31"},
+    "merged_P1":            {"n": 230,  "q": "is:pr is:merged commenter:app/algora-pbc created:2025-07-01..2026-08-31"},
+    "issues_2024":          {"n": 1642, "q": "is:issue commenter:app/algora-pbc created:2024-01-01..2024-12-31"},
+    "issues_2026_07_10":    {"n": 0,    "q": "is:issue commenter:app/algora-pbc created:2026-07-01..2026-10-31"},
+    "issues_P0":            {"n": 2535, "q": "is:issue commenter:app/algora-pbc created:2023-01-01..2024-12-31"},
+    "issues_P1":            {"n": 999,  "q": "is:issue commenter:app/algora-pbc created:2025-07-01..2026-08-31"},
+    "completed_P0":         {"n": 2311, "q": "is:issue is:closed reason:completed commenter:app/algora-pbc created:2023-01-01..2024-12-31"},
+    "completed_P1":         {"n": 719,  "q": "is:issue is:closed reason:completed commenter:app/algora-pbc created:2025-07-01..2026-08-31"},
+    "issues_P0_nofarm":     {"n": 2512, "q": "issues_P0 + farm_filter"},
+    "issues_P1_nofarm":     {"n": 801,  "q": "issues_P1 + farm_filter"},
+    "completed_P0_nofarm":  {"n": 2297, "q": "completed_P0 + farm_filter"},
+    "completed_P1_nofarm":  {"n": 718,  "q": "completed_P1 + farm_filter"},
+    "le6_P0_nofarm":        {"n": 962,  "q": "issues_P0 + comments:0..6 + farm_filter"},
+    "le7_P0_nofarm":        {"n": 1192, "q": "issues_P0 + comments:0..7 + farm_filter"},
+    "le8_P0_nofarm":        {"n": 1375, "q": "issues_P0 + comments:0..8 + farm_filter"},
+    "le6_P1_nofarm":        {"n": 322,  "q": "issues_P1 + comments:0..6 + farm_filter"},
+    "le7_P1_nofarm":        {"n": 395,  "q": "issues_P1 + comments:0..7 + farm_filter"},
+    "le8_P1_nofarm":        {"n": 446,  "q": "issues_P1 + comments:0..8 + farm_filter"},
+    "le4_P0_all":           {"n": 462,  "q": "issues_P0 + comments:<=4 (no farm filter)"},
+    "le4_P1_all":           {"n": 228,  "q": "issues_P1 + comments:0..4 (no farm filter)"}
+  },
+  "series_issues": {
+    "note": "is:issue commenter:app/algora-pbc, by creation date. Rows marked derived are differences of disjoint ranges above.",
+    "2022H1": {"n": 49,   "months": 6, "q": "created:2022-01-01..2022-06-30"},
+    "2022H2": {"n": 49,   "months": 6, "q": "created:2022-07-01..2022-12-31"},
+    "2023H1": {"n": 322,  "months": 6, "q": "created:2023-01-01..2023-06-30"},
+    "2023H2": {"n": 571,  "months": 6, "q": "derived: issues_P0 - issues_2024 - 2023H1"},
+    "2024H1": {"n": 614,  "months": 6, "q": "created:2024-01-01..2024-06-30"},
+    "2024H2": {"n": 1028, "months": 6, "q": "derived: issues_2024 - 2024H1"},
+    "2025H1": {"n": 938,  "months": 6, "q": "created:2025-01-01..2025-06-30"},
+    "2025H2": {"n": 704,  "months": 6, "q": "created:2025-07-01..2025-12-31"},
+    "2026H1": {"n": 295,  "months": 6, "q": "derived: issues_P1 - 2025H2 - (Jul-Aug 2026, which is inside issues_2026_07_10 = 0)"},
+    "2026-07..10": {"n": 0, "months": 4, "q": "created:2026-07-01..2026-10-31"}
+  },
+  "series_issues_2026": {
+    "2026-04..05": {"n": 219, "q": "created:2026-04-01..2026-05-31"},
+    "2026-06":     {"n": 2,   "q": "created:2026-06-01..2026-06-30"},
+    "2026-01..03": {"n": 74,  "q": "derived: 2026H1 - 2026-04..05 - 2026-06"}
+  },
+  "series_prs": {
+    "note": "is:pr commenter:app/algora-pbc (claim PRs) and the is:merged subset, by creation date.",
+    "2022":        {"prs": 1,   "merged": null, "q": "created:2022-01-01..2022-12-31"},
+    "2023":        {"prs": 176, "merged": 129,  "q": "created:2023-01-01..2023-12-31"},
+    "2024":        {"prs": 604, "merged": 374,  "q": "derived: P0 - 2023"},
+    "2025H1":      {"prs": 312, "merged": 228,  "q": "created:2025-01-01..2025-06-30"},
+    "2025H2":      {"prs": 196, "merged": 184,  "q": "created:2025-07-01..2025-12-31"},
+    "2026-01..08": {"prs": 47,  "merged": 46,   "q": "derived: P1 - 2025H2"}
+  }
+}
