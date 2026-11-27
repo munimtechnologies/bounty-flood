@@ -24,6 +24,10 @@ The grading used whole-period GitHub search totals. [ADDENDUM-2026-11-25.md](ADD
 
 On real projects, the numbers show no flood of attempts and no fall in completion. What collapsed is the supply of bounties: new bounty issues stopped in June 2026. Without the farm filter, completion would appear to fall by 19 points. That fall comes from bounty farms, which make up 198 of 999 agent-era bounty issues and completed one of them.
 
+## Phase 2: Expensify's paid "Help Wanted" program (pre-registered 2026-11-27, not yet graded)
+
+Is Algora a special case? [PREREG-2-expensify.md](PREREG-2-expensify.md) asks the same question of the largest public paid-contribution program outside Algora, Expensify/App's `Help Wanted` issues (usually $250, paid through Upwork). It adds an in-sourcing test, because Expensify's own AI agent (`MelvinBot`) now posts proposals on these issues. Four hypotheses: X1 attempt flood, X2 fewer completed, X3 in-sourcing, X4 no recovery in Dec 2026-Jan 2027 (a forecast). The five supply counts we saw before writing it are disclosed there and are not a test.
+
 ## Run it
 
 Standard library Python 3.10+ only. No token is needed.
